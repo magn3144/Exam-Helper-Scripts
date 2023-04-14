@@ -9,6 +9,6 @@ def binary_tree_adj_list(num_leafs):
     return adj_list
 
 # Test
-num_leafs = 13
-print(binary_tree_adj_list(num_leafs))
+# num_leafs = 8
+# print(binary_tree_adj_list(num_leafs))
 # Output: [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [], [], [], [], []]

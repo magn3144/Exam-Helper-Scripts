@@ -18,11 +18,3 @@ def draw_tree(adj_list, labels = [], show_plot = False, node_numbers = False, no
         plt.show()
     
     return G, pos
-
-# # Example usage
-# adj_list = [[1, 2, 4], [3], [5, 6], [7, 8], [9, 10], [11, 12], [13, 14], [15, 16], [17, 18], [19, 20], [21, 22], [23, 24], [], [], [], [], [], [], [], [], [], [], [], [], []]
-
-# labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-# side_labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
-
-# draw_tree(adj_list, labels)

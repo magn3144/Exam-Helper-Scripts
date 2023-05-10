@@ -29,11 +29,31 @@ def add_astar_values(G, pos, node_numbers, h_values, g_values, f_values, edge_we
     # Draw the node labels on the graph
     nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=12, font_color='black')
 
-    # Create a dictionary with edge labels containing edge weights
-    # G.edges contains two edges for each edge in the graph, so we need to filter out the duplicate edges
-    edge_labels = {(u, v): edge_weights[(u, v)] for u, v in G.edges if (u, v) in edge_weights.keys()}
+    # Draw the edge labels on the graph
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_weights, font_size=12, font_color='black')
+
+    return G, pos
+
+def add_labels(G, pos, node_label_names, node_label_values, edge_label_values):
+    """Adds node and edge labels to graph
+    
+    Arguments:
+        G {networkx.Graph} -- Graph to visualize
+        pos {dict} -- Dictionary containing node positions
+        node_label_names {list} -- List of node label names
+        node_labels {dict} -- Dictionary containing node labels, as tuples
+        edge_labels {dict} -- Dictionary containing edge labels, as integers"""
+    
+    node_labels = {node: "" for node in G.nodes}
+    for i, node_label in enumerate(node_label_values):
+        for j, label_value in enumerate(node_label):
+            node_labels[i] += f"{node_label_names[j]}{':'*(len(node_label_names[j])>0)}{label_value}\n"
+        node_labels[i] = node_labels[i][:-1]
+
+    # Draw the node labels on the graph
+    nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=12, font_color='black')
 
     # Draw the edge labels on the graph
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12, font_color='black')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_label_values, font_size=12, font_color='black')
 
     return G, pos

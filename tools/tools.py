@@ -44,3 +44,10 @@ def add_costs_to_graph(graph, cost):
         for j in range(len(_graph[i])):
             _graph[i][j] = (_graph[i][j], cost)
     return _graph
+
+def print_3D_arr_as_table(arr):
+    rows, cols, _ = arr.shape
+    for row in range(rows):
+        for col in range(cols):
+            print(f'({arr[row, col, 0]},{arr[row, col, 1]})', end='\t')
+        print('\n')

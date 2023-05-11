@@ -1,5 +1,6 @@
 from visualization.tree_visualizer import draw_tree
 from visualization.graph_visualizer import highlight_path_on_graph
+import matplotlib.pyplot as plt
 
 
 def minimax(tree_graph, leaf_values, node = 0):
@@ -51,3 +52,4 @@ def visualize_minimax(tree_graph, leaf_values, node = 0, node_size = 2000):
     chosen_path, minimax_values = minimax(tree_graph, leaf_values, node)
     G, pos = draw_tree(tree_graph, minimax_values)
     highlight_path_on_graph(G, pos, chosen_path, node_size)
+    plt.show()

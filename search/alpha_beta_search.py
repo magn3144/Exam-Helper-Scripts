@@ -52,7 +52,8 @@ def visualize_alpha_beta_search(tree_graph, leaf_values, node = 0, node_size = 2
     """Uses the tree_visualizer and graph_visualizer modules to visualize the alpha-beta search.
     It draws the tree and highlights the path that achieves the minimax value.
     It also shows the alpha and beta values.
-    Nodes and edges that are not visited are colored gray.
+    Nodes and edges that are not visited are colored grey.
+    Beta cuts are made on max nodes and alpha cuts are made on min nodes.
     
     Args:
         tree_graph: A list of lists. The i-th element is a list of nodes that are connected to node i.

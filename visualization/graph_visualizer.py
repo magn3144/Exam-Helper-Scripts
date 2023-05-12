@@ -21,14 +21,7 @@ def draw_graph(adj_list, labels, node_size = 2000):
 def highlight_path_on_graph(G, pos, path, node_size=2000):
     # Draw the path edges with a different color and width
     path_edges = [(path[i], path[i + 1]) for i in range(len(path) - 1)]
-    # print("Nodes:")
-    # print(G.nodes)
-    # print("Edges:")
-    # print(G.edges)
-    # print("Pos:")
-    # print(pos)
-    # print("Path:")
-    # print(path_edges)
+    
     nx.draw_networkx_edges(G, pos, edgelist=path_edges, edge_color='red', width=2)
 
     # Draw the path nodes with a different border color and width

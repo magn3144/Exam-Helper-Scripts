@@ -55,14 +55,6 @@ def visualize_astar(graph, start_node, goal_node, heuristic_values, cost = None,
 
     labels = [i for i in range(len(graph_with_costs))]
     G, pos = draw_graph(graph, [], node_size=node_size)
-    print("Nodes:")
-    print(G.nodes)
-    print("Edges:")
-    print(G.edges)
-    print("Pos:")
-    print(pos)
-    # print("Path:")
-    # print(path_edges)
     path, g_values, f_values = A_star(graph_with_costs, start_node, goal_node, heuristic_values)
     G, pos = highlight_path_on_graph(G, pos, path, node_size=node_size)
     # Dictionary containing edge weights for each edge

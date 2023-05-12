@@ -1,8 +1,10 @@
+import matplotlib.pyplot as plt
+import copy
+
 from visualization.graph_visualizer import draw_graph, highlight_path_on_graph, color_unused_nodes_grey
 from visualization.labels import add_astar_values
 from search.breath_first_search import reconstruct_path
 from tools.tools import add_costs_to_graph
-import matplotlib.pyplot as plt
 
 
 def A_star(graph, start_node, goal_node, heuristic_values):
@@ -38,7 +40,7 @@ def visualize_astar(graph, start_node, goal_node, heuristic_values, cost = None,
     """Visualize the A* algorithm on a graph
     
     Arguments:
-        graph {list} -- Graph represented as an adjacency list
+        graph {list} -- Graph represented as an adjacency list optionally where each node is a tuple with (node_id, cost)
         start_node {int} -- Start node
         goal_node {int} -- Goal node
         heuristic_values {dict} -- Dictionary containing heuristic values for each node
@@ -47,9 +49,20 @@ def visualize_astar(graph, start_node, goal_node, heuristic_values, cost = None,
 
     if cost != None:
         graph_with_costs = add_costs_to_graph(graph, cost)
+    else:
+        graph_with_costs = copy.deepcopy(graph)
+        graph = [[node[0] for node in nodes] for nodes in graph]
 
     labels = [i for i in range(len(graph_with_costs))]
     G, pos = draw_graph(graph, [], node_size=node_size)
+    print("Nodes:")
+    print(G.nodes)
+    print("Edges:")
+    print(G.edges)
+    print("Pos:")
+    print(pos)
+    # print("Path:")
+    # print(path_edges)
     path, g_values, f_values = A_star(graph_with_costs, start_node, goal_node, heuristic_values)
     G, pos = highlight_path_on_graph(G, pos, path, node_size=node_size)
     # Dictionary containing edge weights for each edge

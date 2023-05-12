@@ -1,3 +1,5 @@
+from matplotlib import pyplot as plt
+
 from visualization.tree_visualizer import draw_tree
 from visualization.graph_visualizer import highlight_path_on_graph, color_unused_nodes_grey
 from visualization.labels import add_alpha_beta_values
@@ -65,3 +67,4 @@ def visualize_alpha_beta_search(tree_graph, leaf_values, node = 0, node_size = 2
     G, pos = highlight_path_on_graph(G, pos, chosen_path, node_size=node_size)
     G, pos = add_alpha_beta_values(G, pos, values_dict)
     G, pos = color_unused_nodes_grey(G, pos, values_dict, node_size=node_size)
+    plt.show()
